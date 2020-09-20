@@ -65,9 +65,18 @@ SELECT name, twitter_handle FROM celebs;
    date_of_death TEXT DEFAULT 'Not Applicable'
  );
 
-/* create a new table with constraints on the values */
-CREATE TABLE awards (
+
+CREATE TABLE awards (  -- create a new table with constraints on the values 
   id INTEGER PRIMARY KEY,
   recipient TEXT NOT NULL,
   award_name TEXT DEFAULT 'Grammy'
 );
+
+/*
+CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+);
+*/
