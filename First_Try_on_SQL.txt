@@ -29,3 +29,45 @@ VALUES (4, 'Taylor Swift', 26);
 
 INSERT INTO celebs (id, name, age)
 VALUES (5, 'Eric Chou', 25);
+
+
+ /*
+ Add a new column to a table
+ */
+ ALTER TABLE celebs -- make specificied changes
+ ADD COLUMN twitter_handle TEXT;
+
+SELECT name, twitter_handle FROM celebs;
+--select several specified columns from a table
+
+/* UPDATE changes an existing row in a table */
+
+ UPDATE celebs
+ SET twitter_handle = '@taylorswift13'
+ WHERE id = 4;
+
+ SELECT * FROM celebs;
+ 
+ 
+ DELETE FROM celebs
+ WHERE twitter_handle IS NULL;
+  -- deletes the rows with no 'twitter_handle'
+
+ SELECT * FROM celebs;
+ 
+ 
+  /* Constraints tell the database to reject inserted data that do not adhere to a certain restriction */
+
+ CREATE TABLE constrained_celebs (
+   id INTEGER PRIMARY KEY, --
+   name TEXT UNIQUE,
+   date_of_birth TEXT NOT NULL,
+   date_of_death TEXT DEFAULT 'Not Applicable'
+ );
+
+/* create a new table with constraints on the values */
+CREATE TABLE awards (
+  id INTEGER PRIMARY KEY,
+  recipient TEXT NOT NULL,
+  award_name TEXT DEFAULT 'Grammy'
+);
