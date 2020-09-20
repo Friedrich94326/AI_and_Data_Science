@@ -163,7 +163,7 @@ LIMIT 3;
 
 
 
-/* CASE: if-then logic */
+/* CASE: if-then logic, creates different outputs */
 
 SELECT name,
   CASE
