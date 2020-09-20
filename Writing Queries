@@ -161,3 +161,24 @@ FROM movies
 ORDER BY imdb_rating DESC
 LIMIT 3;
 
+
+
+/* CASE: if-then logic */
+
+SELECT name,
+  CASE
+    WHEN imdb_rating > 8 THEN 'Fantastic' -- like 'if'
+    WHEN imdb_rating > 6 THEN 'Poorly Received' -- like 'elif'
+    ELSE 'Avoid at ALL Costs'
+  END AS 'Review'
+
+FROM movies;
+
+SELECT name,
+  CASE
+    WHEN genre = 'romance' THEN 'Chill'
+    WHEN genre = 'comedy' THEN 'Chill'
+    ELSE 'Intense'
+  END AS 'Mood'
+FROM movies;
+
