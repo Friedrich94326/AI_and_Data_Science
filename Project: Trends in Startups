@@ -1,0 +1,58 @@
+SELECT * FROM startups;
+
+SELECT COUNT(DISTINCT name) AS 'total number of companies' FROM startups;
+
+SELECT SUM(valuation) AS 'total value' FROM startups;
+
+SELECT MAX(raised)
+FROM startups
+WHERE stage = 'Seed';
+
+SELECT name,
+  MIN(founded) AS 'oldest company'
+FROM startups;
+
+SELECT AVG(valuation) AS 'averaged valuation over all companies'
+FROM startups;
+
+SELECT category,
+  ROUND(AVG(valuation), 2) AS 'averaged valuation over each category' -- averages rounded to 2 decimal places
+FROM startups
+GROUP BY 1
+ORDER BY ROUND(AVG(valuation), 2) DESC;
+
+/* What are the most competitve markets? */
+SELECT category, COUNT(*) AS 'number of companies'
+FROM startups
+GROUP BY category
+HAVING COUNT(*) > 3  -- more than 3 companies belong to that category 
+ORDER BY 2 DESC;
+
+
+/* the following programme is invalid */
+/*
+SELECT category, COUNT(*)
+FROM startups
+HAVING COUNT(*) > 3
+GROUP BY category
+ORDER BY 2 DESC;
+*/
+
+SELECT category, COUNT(*) AS 'the most competitive markets'
+FROM startups
+GROUP BY category
+HAVING COUNT(*) > 3  -- more than 3 companies belong to that category 
+ORDER BY 2 DESC
+LIMIT 1;
+
+SELECT location, AVG(employees) AS 'average size of a startup in each location'
+FROM startups
+GROUP BY 1
+ORDER BY 2 DESC;
+
+SELECT location, AVG(employees) AS 'average size which is above 500'
+FROM startups
+GROUP BY 1
+HAVING AVG(employees) > 500
+ORDER BY 2 DESC;
+
