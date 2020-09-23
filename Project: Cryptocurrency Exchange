@@ -1,0 +1,67 @@
+SELECT * FROM transactions; --  money-in and money-out transactions
+
+SELECT SUM(money_in)
+  AS 'total amount (USD) the user bought'
+FROM transactions;
+
+SELECT SUM(money_out)
+  AS 'total amount (USD) the user sold'
+FROM transactions;
+
+
+SELECT COUNT(*)
+AS 'number of moeny-in transactions'
+FROM transactions
+WHERE money_in IS NOT NULL;
+
+SELECT COUNT(*)
+AS 'number of money-in transactions with Bitcoin'
+FROM transactions
+WHERE money_in IS NOT NULL
+  AND currency LIKE '%BIT%';
+
+
+SELECT
+  CASE
+    WHEN money_in IS NULL THEN 'money-out'
+    WHEN money_out IS NULL THEN 'money-in'
+    ELSE 'unclear transaction'
+  END AS 'status (in/out)'
+FROM transactions;
+
+/*
+ALTER TABLE transactions
+ADD 'largest_transaction' CASE
+    WHEN MAX(money_in) > MAX(money_out) THEN 'money-in'
+    WHEN MAX(money_in) < MAX(money_out) THEN 'money-out'
+    ELSE 'equal'
+  END;
+*/
+
+
+SELECT
+  CASE
+    WHEN MAX(money_in) > MAX(money_out) THEN 'money-in'
+    WHEN MAX(money_in) < MAX(money_out) THEN 'money-out'
+    ELSE 'equal'
+  END AS 'largest_transaction',
+  CASE
+    WHEN MAX(money_in) > MAX(money_out) THEN MAX(money_in)
+    WHEN MAX(money_in) < MAX(money_out) THEN MAX(money_out)
+    ELSE MAX(money_in)
+  END AS 'amount'
+FROM transactions;
+
+
+SELECT AVG(money_in)
+FROM transactions
+WHERE currency = 'ETH'  -- currency eh
+  AND money_in IS NOT NULL; --in fact, AVG() ignores NULL
+
+
+/* build a ledger for the different date */
+SELECT date,
+  ROUND(AVG(money_in), 2) AS 'average money-in',
+  ROUND(AVG(money_out), 2) AS 'average money-out'
+FROM transactions
+GROUP BY date;
