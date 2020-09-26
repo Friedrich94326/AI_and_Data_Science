@@ -1,4 +1,4 @@
-statement_one = False
+statement_one = False  # with data type Boolean
 
 statement_two = True
 
@@ -14,3 +14,14 @@ def graduation_reqs(gpa, credits):
     msg += "You do not meet either requirement to graduate!"
   
   return msg
+
+
+
+""" try and except statements to check for possible errors that a user might encounter """
+def raises_value_error():
+  raise ValueError
+  
+try:
+  raises_value_error()
+except ValueError:
+  print("You raised a ValueError!")
