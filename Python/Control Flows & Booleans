@@ -1,0 +1,16 @@
+statement_one = False
+
+statement_two = True
+
+def graduation_reqs(gpa, credits):
+  msg = ""
+  if (gpa >= 2.0) and (credits >= 120):
+    msg += "You meet the requirements to graduate!"
+  elif (gpa >= 2.0) and not(credits >= 120):
+    msg += "You do not have enough credits to graduate."
+  elif not(gpa >= 2.0) and (credits >= 120):
+    msg += "Your GPA is not high enough to graduate."
+  else:
+    msg += "You do not meet either requirement to graduate!"
+  
+  return msg
