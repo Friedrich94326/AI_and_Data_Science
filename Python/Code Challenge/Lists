@@ -1,8 +1,0 @@
-def every_three_nums(start):
-  listOfNums = []
-  current = start
-  while current <= 100:
-    print(current)
-    listOfNums.append(current)
-    current += 3
-  
