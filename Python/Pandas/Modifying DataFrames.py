@@ -25,6 +25,7 @@ df['Margin'] = df['Price'] - df['Cost to Manufacture']
 # the column that we want to add is related to existing columns, but requires a calculation more complex than multiplication or addition.
 df['Lowercase Name'] = df.Name.apply(lower)
 
+# Applying a Lambda to a column
 # a lambda function mylambda that returns the first and last letters of a string
 mylambda = lambda string: string[0] + string[-1]
 
@@ -36,5 +37,21 @@ df = pd.read_csv('employees.csv')
 
 #  get_last_name which takes a string with someone’s first and last name
 get_last_name = lambda String: String.split( )[-1]
-df['last name'] = df.name.apply(get_last_name)
+df['last_name'] = df.name.apply(get_last_name)
+
+
+df = pd.read_csv('employees.csv')
+total_earned = lambda row: (row.hourly_wage * 40) + ((row.hourly_wage * 1.5) * (row.hours_worked - 40)) \
+	if row.hours_worked > 40 \
+  else row.hourly_wage * row.hours_worked
+  
+df['total_earned'] = df.apply(total_earned, axis = 1)
+
+
+
+# Renaming Columns
+df = pd.read_csv('imdb.csv')
+df.columns = ['ID', 'Title', 'Category', 'Year Released', 'Rating']
+
+# rename individual columns by using the .rename method
 
