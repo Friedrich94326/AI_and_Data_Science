@@ -54,4 +54,20 @@ df = pd.read_csv('imdb.csv')
 df.columns = ['ID', 'Title', 'Category', 'Year Released', 'Rating']
 
 # rename individual columns by using the .rename method
+df.rename( columns = {
+  'name': 'movie_title'},
+  inplace = True    # Using inplace=True lets us edit the original DataFrame
+)
+
+print(orders.head(5))
+
+orders['shoe_source'] = orders.shoe_material.apply(lambda x: 'animal' if x == 'leather' else 'vegan')
+print(orders.head(5))
+
+Salutation_by_gender = lambda row: 'Dear Mr. ' + row.last_name if gender == 'male' else 'Dear Ms. ' + row.last_name
+
+orders['salutation'] = orders.apply(Salutation_by_gender, axis = 1)
+print(orders.head(5))
+
+
 
