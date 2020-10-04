@@ -105,6 +105,79 @@ plt.plot(months, gerudo)
 #create your legend here
 legend_labels = ["Hyrule","Karariko", "Gerudo Valley"]
 plt.legend(legend_labels)
+plt.show()
 
+plt.plot(months, hyrule, label = "Hyrule")
+plt.plot(months, kakariko, label = "Kakariko")
+plt.plot(months, gerudo, label = "Gerudo Valley")
+
+#create your legend here
+#legend_labels = ["Hyrule","Karariko", "Gerudo Valley"]
+#plt.legend(legend_labels)
+plt.legend(loc = 8) # loc = 8 for lower centre
+
+
+# Modify ticks
+month_names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"]
+
+months = range(12)
+conversion = [0.05, 0.08, 0.18, 0.28, 0.4, 0.66, 0.74, 0.78, 0.8, 0.81, 0.85, 0.85]
+
+plt.xlabel("Months")
+plt.ylabel("Conversion")
+plt.plot(months, conversion)
+
+
+ax = plt.subplot() 
+# ax is an axes object, and it lets us modify the axes belonging to a specific subplot
+ax.set_xticks(months)
+ax.set_xticklabels(month_names)
+ax.set_yticks([.10, .25, .5, .75])
+ax.set_yticklabels(['10%', '25%', '50%', '75%'])
 
 plt.show()
+
+# Figures
+# syntax: figsize=(width, height)
+word_length = [8, 11, 12, 11, 13, 12, 9, 9, 7, 9]
+power_generated = [753.9, 768.8, 780.1, 763.7, 788.5, 782, 787.2, 806.4, 806.2, 798.9]
+years = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]
+
+
+# close all plots to make sure we have no lines already plotted that we’ve forgotten about
+plt.close('all')
+
+# Figure 1
+plt.figure()
+plt.plot(years, word_length)
+plt.savefig('winning_word_lengths.png')
+
+#plt.close('all')
+
+# Figure 2
+plt.figure()
+plt.plot(years, power_generated)
+plt.savefig('power_generated.png')
+
+# A Review
+x = range(1999, 2010)
+y1 = [5427, 5688, 6198, 6462, 6635, 7336, 7248, 7491, 8161, 8578, 9000]  # hanging suicides
+y2 = [18.079, 18.594, 19.735, 20.734, 20.831, 23.029, 23.597, 23.584, 25.525, 27.731, 29.449] # US spending on science
+
+# Figure 1
+plt.figure()
+plt.plot(x, y1, color = 'pink', marker = 'o')
+plt.plot(x, y2, color = 'gray', marker = 'o')
+plt.title('Two Lines on One Graph')
+plt.xlabel('Amazing X-axis')
+plt.ylabel('Incredible Y-axis')
+legend_labels = ['Suicides by hanging, strangulation and suffocation', 'US spending on science, space, and technology']
+plt.legend(legend_labels, loc = 4)
+plt.show()
+
+plt.savefig('Suicides_correlates_with_US_expense.png')
+plt.close('all')
+
+
+
+
