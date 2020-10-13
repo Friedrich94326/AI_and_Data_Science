@@ -50,3 +50,6 @@ plt.xlabel("k")
 plt.ylabel("Validation Accuracy")
 plt.title("Breast Cancer Classifier Accuracy")
 plt.show()
+
+
+#  try changing the random_state parameter when making the training set and validation set
