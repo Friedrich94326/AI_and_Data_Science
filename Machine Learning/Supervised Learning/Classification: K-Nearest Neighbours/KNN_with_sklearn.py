@@ -8,6 +8,8 @@ classifier = KNeighborsClassifier( n_neighbors = 5)
 # Train our classifier using training set and labels
 classifier.fit(movie_dataset, labels)
 
+
+# Predicting unknown movies
 unknown_movies = [
   [.45, .2, .5],
   [.25, .8, .9],
