@@ -89,3 +89,61 @@ def sigmoid(z):
 
 probabilities = sigmoid(calculated_log_odds)
 print(probabilities)
+
+
+# Log-Loss Function
+
+from exam import passed_exam, probabilities, probabilities_2
+
+# Function to calculate log-loss
+def log_loss(probabilities, actual_class):
+  return np.sum(-(1/actual_class.shape[0])*(actual_class*np.log(probabilities) + (1-actual_class)*np.log(1-probabilities)))
+
+# Print passed_exam here
+print(passed_exam)
+print(probabilities)
+
+# Combine passed_exam, probabilities, probabilities_2
+
+for i in range(len(passed_exam)):
+  print(passed_exam[i], probabilities[i], probabilities_2[i])
+
+
+# Calculate and print loss_1 here
+loss_1 = log_loss(probabilities, passed_exam)
+print(loss_1)
+
+# Calculate and print loss_2 here
+loss_2 = log_loss(probabilities_2, passed_exam)
+print(loss_2)
+
+
+# Classification Thresholding
+from exam import hours_studied, calculated_coefficients, intercept
+
+def log_odds(features, coefficients,intercept):
+  return np.dot(features,coefficients) + intercept
+
+def sigmoid(z):
+    denominator = 1 + np.exp(-z)
+    return 1/denominator
+
+# Create predict_class() function here
+
+def predict_class(features, coefficients, intercept, threshold):
+  calculated_log_odds = log_odds(features, coefficients,intercept)
+  probabilities = sigmoid(calculated_log_odds)
+  #if np.any( probabilities >= threshold ):
+  #  return 1
+  #elif np.any( probabilities < threshold ):
+  #  return 0
+  
+  # HINT
+  return np.where( probabilities >= threshold, 1, 0)
+
+# Make final classifications on Codecademy University data here
+
+final_results = predict_class(hours_studied, calculated_coefficients, intercept, threshold = .5)
+print(final_results)
+
+
