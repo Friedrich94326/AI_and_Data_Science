@@ -89,9 +89,12 @@ print("normalised features:")
 print(scaler.transform(sample_passengers))
 
 # Make survival predictions!
+print("Survival classifications of sample passengers:")
+print(regressor.predict(sample_passengers))
 print("[prob of perishing, prob of surviving]")
 print(regressor.predict_proba(sample_passengers) )
 
 # Result:
+# Jack: perish, survive, perish
 # Jack: [0.88529354 0.11470646] Rose: [0.06246447 0.93753553] Me: [0.83230187 0.16769813]
 
