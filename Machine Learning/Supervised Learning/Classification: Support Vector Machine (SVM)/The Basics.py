@@ -33,3 +33,91 @@ plt.tight_layout()
 plt.show()
 
 
+
+# Using Sklearn library
+from sklearn.svm import SVC
+from graph import points, labels
+
+classifier = SVC(kernel = 'linear')
+classifier.fit(points, labels)
+print(classifier.predict([ [3, 4], [6, 7] ]))
+
+# the effect of outliers on the boundary
+import codecademylib3_seaborn
+import matplotlib.pyplot as plt
+from graph import points, labels, draw_points, draw_margin
+
+# adding an outlier (labelled as a blue point) to the training set 
+points.append([3, 3])
+labels.append(0)
+
+points.extend([ [4.3, 1.5], [7.2, 5.1], [9.0, 6.1] ])
+labels.extend([0, 0, 1 ])
+
+
+classifier = SVC(kernel='linear', C =.24)
+classifier.fit(points, labels)
+
+draw_points(points, labels)
+draw_margin(classifier)
+
+plt.show()
+
+
+# Kernels: Linearly Separable & Non-linearly Separable Dataset
+
+from graph import points, labels
+from sklearn.model_selection import train_test_split
+
+training_data, validation_data, training_labels, validation_labels = train_test_split(points, labels, train_size = 0.8, test_size = 0.2, random_state = 100)
+
+
+#classifier = SVC(kernel = 'linear')
+classifier = SVC(kernel = 'poly', degree = 2)
+classifier.fit(training_data, training_labels)
+
+Avg_Accu = classifier.score(validation_data, validation_labels)
+print("average accuracy of the model is around %.f%%" %(Avg_Accu* 100) )
+# 43% for linear kernel: not linearly separable
+# 100% for quadratic kernel
+
+
+# Polynomial Kernel
+
+from sklearn.datasets import make_circles
+
+#Makes concentric circles
+points, labels = make_circles(n_samples=300, factor=.2, noise=.05, random_state = 1)
+
+#Makes training set and validation set.
+training_data, validation_data, training_labels, validation_labels = train_test_split(points, labels, train_size = 0.8, test_size = 0.2, random_state = 100)
+
+classifier = SVC(kernel = "linear", random_state = 1)
+classifier.fit(training_data, training_labels)
+print(classifier.score(validation_data, validation_labels))
+
+print(training_data[0])
+
+new_training = []
+new_validation = []
+
+
+for point in training_data:
+  new_training_pt = [ 2 ** (1/2) * point[0] * point[1], point[0] ** 2, point[1] ** 2 ]
+  new_training.append(new_training_pt)
+
+
+for point in validation_data:
+  new_validation_pt = [ 2 ** (1/2) * point[0] * point[1], point[0] ** 2, point[1] ** 2 ]
+  new_validation.append(new_validation_pt)
+
+# Retrain the model 'classifier' with new training data
+classifier.fit(new_training, training_labels)
+
+# validation process
+New_Validation_Score = classifier.score(new_validation, validation_labels)
+print(New_Validation_Score)
+
+# Radial Basis Function Kernel
+
+
