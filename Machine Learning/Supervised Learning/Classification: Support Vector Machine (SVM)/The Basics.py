@@ -71,6 +71,7 @@ plt.show()
 
 
 # Kernels: Linearly Separable & Non-linearly Separable Dataset
+# A kernel transforms the data into a higher dimension so it can be linearly separable.
 
 from graph import points, labels
 from sklearn.model_selection import train_test_split
