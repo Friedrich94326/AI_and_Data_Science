@@ -1,3 +1,8 @@
+"""
+An SVM uses support vectors to define a decision boundary. Classifications are made by comparing unlabeled points to that decision boundary.
+Support vectors are the points of each class closest to the decision boundary.
+"""
+
 # Optimal Decision Boundaries
 import codecademylib3_seaborn
 import matplotlib.pyplot as plt
@@ -54,7 +59,8 @@ labels.append(0)
 points.extend([ [4.3, 1.5], [7.2, 5.1], [9.0, 6.1] ])
 labels.extend([0, 0, 1 ])
 
-
+# The C parameter controls how much error is allowed.
+# A large C allows for little error and creates a hard margin. A small C allows for more error and creates a soft margin.
 classifier = SVC(kernel='linear', C =.24)
 classifier.fit(points, labels)
 
@@ -118,6 +124,28 @@ classifier.fit(new_training, training_labels)
 New_Validation_Score = classifier.score(new_validation, validation_labels)
 print(New_Validation_Score)
 
+
+
+
 # Radial Basis Function Kernel
+
+training_data, validation_data, training_labels, validation_labels = train_test_split(points, labels, train_size = 0.8, test_size = 0.2, random_state = 100)
+
+
+classifier = SVC(kernel = 'rbf', gamma = 1)
+# A higher gamma, say 100, will put more importance on the training data and could result in overfitting.
+# Conversely, a lower gamma like 0.01 makes the points in the training data less relevant and can result in underfitting.
+classifier.fit(training_data, training_labels)
+#print("when gamma = 1, classifier's accuracy %.3f" % classifier.score(validation_data, validation_labels) )
+
+for gamma in range(1, 11):
+  classifier = SVC(kernel = 'rbf', gamma = gamma)
+  classifier.fit(training_data, training_labels)
+  print("when gamma = %d, classifier's accuracy is %.3f" %(gamma, classifier.score(validation_data, validation_labels) ) )
+
+classifier = SVC(kernel = 'rbf', gamma = .1)
+classifier.fit(training_data, training_labels)
+print("when gamma = 0.1, classifier's accuracy is %.3f" %classifier.score(validation_data, validation_labels) )
+
 
 
