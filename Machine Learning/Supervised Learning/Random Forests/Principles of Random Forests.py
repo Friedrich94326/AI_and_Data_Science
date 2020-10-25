@@ -10,7 +10,7 @@ Random forests create different trees using a process known as bagging.
 Every time a decision tree is made, it is created using a different subset of the points in the training set.
 """
 
-## Bagging
+## Bagging- Those data points are chosen at random with replacement
 
 from tree import build_tree, print_tree, car_data, car_labels
 import random
@@ -73,8 +73,8 @@ unlabeled_point = ['high', 'vhigh', '3', 'more', 'med', 'med']
 # make 20 trees and record the prediction of each one
 predictions = []
 count = 0
-for i in range(20):
 
+for i in range(20):
   # making a decision tree
   indices = [random.randint(0, 999) for i in range(1000)]
   data_subset = [car_data[index] for index in indices]
