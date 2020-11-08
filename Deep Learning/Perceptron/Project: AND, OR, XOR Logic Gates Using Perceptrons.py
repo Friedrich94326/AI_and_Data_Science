@@ -1,4 +1,7 @@
-""" AND, OR, XOR gates """
+
+""" Perceptrons can’t solve problems that aren’t linearly separable.
+However, if you combine multiple perceptrons together, you now have a neural net that can solve these problems!
+"""
 
 import codecademylib3_seaborn
 from sklearn.linear_model import Perceptron
@@ -116,3 +119,9 @@ plt.colorbar(heatmap) # will put a legend on the heat map
 plt.title('Perceptron for OR gate')
 plt.show()
 plt.clf()
+
+
+"""
+This is incredibly similar to logic gates. AND gates and OR gates can’t produce the output of XOR gates, 
+but when you combine a few ANDs and ORs, you can make an XOR!
+"""
