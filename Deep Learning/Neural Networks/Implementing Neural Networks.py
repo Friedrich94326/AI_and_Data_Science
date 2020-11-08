@@ -1,3 +1,6 @@
+
+""" Loading the data """
+
 import pandas as pd
 
 #load the dataset
@@ -18,3 +21,5 @@ print(features.describe())
 print(labels.shape)
 # summary statistics of the 'labels' series
 print(labels.describe())
+
+
