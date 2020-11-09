@@ -199,3 +199,5 @@ plot(history2)
 plt.savefig('static/images/my_plot2.png')
 
 import app #don't worry about this. This is to show you the plot in the browser.
+
+
