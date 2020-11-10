@@ -69,6 +69,87 @@ y_test = test_data["Air_Quality"]
 from sklearn.preprocessing import LabelEncoder
 import tensorflow
 
+#encode the labels into integers
+le = LabelEncoder()
+y_train = le.fit_transform(y_train.astype(str))
+y_test = le.transform(y_test.astype(str))
+
+print("integer-encoded labels:")
+print("the first 5 y_train's:")
+print(y_train[0:5])
+print("the first 5 y_test's:")
+print(y_test[0:5])
+
+
+#print the integer mappings
+integer_mapping = {l: i for i, l in enumerate(le.classes_)}
+print("The integer mapping:\n", integer_mapping)
+
+#convert the integer encoded labels into binary vectors
+y_train = tensorflow.keras.utils.to_categorical(y_train, dtype = 'int64')
+y_test = tensorflow.keras.utils.to_categorical(y_test, dtype = 'int64')
+
+print("one-hot-encoded labels:")
+print("the first 5 y_train's:")
+print(y_train[0:5])
+print("the first 5 y_test's:")
+print(y_test[0:5])
+
+
+""" Designing a Deep Learning Model for Classification """
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import InputLayer
+from tensorflow.keras.layers import Dense
+
+#design the model
+model = Sequential()
+
+#add the input layer
+model.add(InputLayer(input_shape = (x_train.shape[1], )))
+
+#add a hidden layer
+model.add(Dense(10, activation = 'relu'))
+
+#add an output layer
+model.add(Dense(y_train.shape[1], activation = 'softmax'))
+
+
+""" Setting Up the Optimiser """
+
+#compile the model
+model.compile(loss = 'categorical_crossentropy', optimizer = 'adam', metrics = ['accuracy'])
+
+
+""" Train and Evaluate the Model """
+
+#train and evaluate the model
+model.fit(x_train, y_train, epochs = 20, batch_size = 4, verbose = 1)
+res_mse, res_accu = model.evaluate(x_test, y_test, verbose = 1)
+
+print("MSE test: ", res_mse) # MSE test: 0.4955960214138031
+print("ACCU test: ", res_accu) # ACCU test: 0.8285509347915649
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
