@@ -14,13 +14,13 @@ import numpy as np
 
 """ Loading and Exploring the Data """
 #load the data using `pandas.read_csv()`
-data = pd.read_csv('heart_failure.csv')
+data = pd.read_csv('heart_failure_clinical_records_dataset.csv')
 
 #print all the columns and their types
 print(data.info())
 
 #print the class distribution
-print('Classes and number of values in the dataset',Counter(data['DEATH_EVENT']))
+print('Classes and number of values in the dataset', Counter(data['DEATH_EVENT']))
 
 #split the dataframe into features and labels
 y = data["DEATH_EVENT"]
