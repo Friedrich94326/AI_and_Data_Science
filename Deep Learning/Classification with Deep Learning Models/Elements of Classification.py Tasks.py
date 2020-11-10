@@ -99,7 +99,7 @@ print(y_test[0:5])
 """ Designing a Deep Learning Model for Classification """
 
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import InputLayer
+from tensorflow.keras.layers import IutLayer
 from tensorflow.keras.layers import Dense
 
 #design the model
@@ -131,7 +131,25 @@ print("MSE test: ", res_mse) # MSE test: 0.4955960214138031
 print("ACCU test: ", res_accu) # ACCU test: 0.8285509347915649
 
 
+""" Additional Evaluation Statistics """
 
+import numpy as np
+from sklearn.metrics import classification_report
+
+#get additional statistics
+y_estimate = model.predict(x_test)
+print("one-hot encoded y_estimate")
+print(y_estimate[0:5])
+
+#convert one-hot encoded labels into the index of the class the sample belongs to
+print("after conversion y_estimate")
+y_estimate = np.argmax(y_estimate, axis = 1)
+print(y_estimate[0:5])
+
+y_true = np.argmax(y_test, axis = 1)
+
+#F1-score
+print(classification_report(y_true, y_estimate))
 
 
 
