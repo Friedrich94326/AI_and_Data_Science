@@ -33,3 +33,41 @@ strides = 2,
 padding = "same",
 activation = "relu"))
 model.summary()
+
+""" Adding a Single Convolutional Layer to the Sequential Model """
+
+
+#Add a Conv2D layer, with 2 filters of size 5x5, strides of 3, valid padding
+model.add(tf.keras.layers.Conv2D(
+  filters = 2,
+  kernel_size = 5,
+  strides = 3,
+  padding = "valid",
+  activation = "relu"
+ ))
+
+""" Stack Multiple Layers """
+#Add another Conv2D layer, with 4 filters of size 3x3, strides of 1, valid padding
+model.add(tf.keras.layers.Conv2D(
+  filters = 4,
+  kernel_size = 3,
+  strides = 1,
+  padding = "valid",
+  activation = "relu"
+ ))
+
+
+model.add(tf.keras.layers.Flatten())
+
+# #Remove these two dense layers:
+#model.add(tf.keras.layers.Dense(100, activation="relu"))
+#model.add(tf.keras.layers.Dense(50, activation="relu"))
+
+model.add(tf.keras.layers.Dense(2, activation = "softmax"))
+
+#Print model information:
+model.summary()
+
+
+
+
