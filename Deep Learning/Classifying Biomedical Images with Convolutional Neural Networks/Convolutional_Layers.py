@@ -20,7 +20,16 @@ model.add(tf.keras.layers.Conv2D(8, 3, activation = "relu"))
 model.summary()
 
 
-""" Configuring a Convolutional Layer- Stride and Padding """
+""" Configuring Convolutional Layers- Stride and Padding """
 
+print("Model with 16 filters:")
 
+model_2 = tf.keras.Sequential()
+model_2.add(tf.keras.Input(shape = (256, 256, 1)))
 
+#Adds a Conv2D layer with 16 filters, each size 7x7, and uses a stride of 2 with valid padding:
+model_2.add(tf.keras.layers.Conv2D(16, 7,
+strides = 2,
+padding = "same",
+activation = "relu"))
+model.summary()
