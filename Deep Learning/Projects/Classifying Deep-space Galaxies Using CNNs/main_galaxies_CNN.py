@@ -53,18 +53,18 @@ model.add(tf.keras.layers.Dense(16, activation = "relu"))
 #Output layer: 4 classes outputed
 model.add(tf.keras.layers.Dense(4, activation = "softmax"))
 
-#Compile the model
+""" Compile the model """
 model.compile(
   optimizer = tf.keras.optimizers.Adam(learning_rate = 0.001),
   loss = tf.keras.losses.CategoricalCrossentropy(),
   metrics = [tf.keras.metrics.CategoricalAccuracy(), tf.keras.metrics.AUC()]
 )
 
-#Print model information: 7,164 parameters
+""" Print model information: 7,164 parameters """
 model.summary()
 
 
-#Train and evaluate the model
+""" Train and evaluate the model """
 BATCH_SIZE = 5
 
 model.fit(
