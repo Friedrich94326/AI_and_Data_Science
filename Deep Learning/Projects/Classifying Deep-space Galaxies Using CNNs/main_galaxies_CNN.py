@@ -26,7 +26,7 @@ data_generator = ImageDataGenerator(rescale = 1.0/255)
 training_iterator = data_generator.flow(features_train, labels_train, batch_size = 5)
 validation_iterator = data_generator.flow(features_validation, labels_validation, batch_size = 5)
 
-#Build a model starting with the input shape and output layer
+""" Build a model starting with the input shape and output layer """
 model = tf.keras.Sequential()
 
 #Input layer
