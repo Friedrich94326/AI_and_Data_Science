@@ -1,5 +1,6 @@
-""" Problem Description and Project Goal """
 """ 
+        Problem Description and Project Goal:
+
 You are a researcher in a hospital lab and are given the task to develop a learning model that supports doctors
 with diagnosing illnesses that affect patients’ lungs. At your disposal, you have a set X-ray lung scans with 
 examples of patients who had either pneumonia, Covid-19, or no illness. Using the Keras module, you will create
