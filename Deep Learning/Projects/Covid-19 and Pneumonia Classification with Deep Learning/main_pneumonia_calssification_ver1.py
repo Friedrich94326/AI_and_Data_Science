@@ -20,10 +20,28 @@ from tensorflow.keras import layers
 import matplotlib.pyplot as plt
 import app
 
+
 """ Preprocessing Image Data """
 
 # Create a data generator and normalise pixels
-data_generator = ImageDataGenerator(rescale = 1.0/ 255)
+data_generator = ImageDataGenerator(
+#normalise image data
+rescale = 1.0/255,
+
+#Randomly increase or decrease the size of the image by up to 10%
+zoom_range = 0.1, 
+
+#Randomly rotate the image between -25,25 degrees
+rotation_range = 25, 
+
+#Shift the image along its width by up to +/- 5%
+width_shift_range = 0.05, 
+
+#Shift the image along its height by up to +/- 5%
+height_shift_range = 0.05,
+
+# set validation split
+validation_split = 0.2)
 
 # Load and iterate dataset: training & validation
 DIRECTORY_TRAIN = 'augmented-data/train'
@@ -34,10 +52,20 @@ TARGET_SIZE = (256, 256)
 BATCH_SIZE = 32 #by default
 
 print("\nLoading training data...")
-training_iterator = data_generator.flow_from_directory(DIRECTORY_TRAIN, class_mode = CLASS_MODE, color_mode = COLOR_MODE, target_size = TARGET_SIZE, batch_size = BATCH_SIZE)
+
+
+training_iterator = training_data_generator.flow_from_directory(DIRECTORY_TRAIN, class_mode = CLASS_MODE, color_mode = COLOR_MODE, target_size = TARGET_SIZE, batch_size = BATCH_SIZE, subset = 'training') # set as training data
+
+training_iterator.next()
 
 print("\nLoading validation data...")
-validation_iterator = data_generator.flow_from_directory(DIRECTORY_VALIDATION, class_mode = CLASS_MODE, color_mode = COLOR_MODE, target_size = TARGET_SIZE, batch_size = BATCH_SIZE)
+
+validation_iterator = training_data_generator.flow_from_directory(DIRECTORY_TRAIN, class_mode = CLASS_MODE, color_mode = COLOR_MODE,  target_size = TARGET_SIZE, batch_size = BATCH_SIZE, subset = 'validation') # set as validation data
+
+validation_iterator.next()
+
+#Print its attributes:
+print(training_data_generator.__dict__)
 
 
 
