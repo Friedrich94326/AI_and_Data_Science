@@ -1,12 +1,13 @@
-"""
-You are a researcher in a hospital lab and are given the task to develop a learning model that supports doctors
-with diagnosing illnesses that affect patients’ lungs. At your disposal, you have a set X-ray lung scans with examples 
-of patients who had either pneumonia, Covid-19, or no illness. Using the Keras module, you will create a classification
-model that outputs a diagnosis based on a patient’s X-ray scan. You hope this model can help doctors with the challenge
-of deciphering X-ray scans and open a dialogue between your research team and the medical staff to create learning models
-that are as effective and interpretable as possible.
-"""
+""" 
+        Problem Description and Project Goal:
 
+You are a researcher in a hospital lab and are given the task to develop a learning model that supports doctors
+with diagnosing illnesses that affect patients’ lungs. At your disposal, you have a set X-ray lung scans with 
+examples of patients who had either pneumonia, Covid-19, or no illness. Using the Keras module, you will create
+a classification model that outputs a diagnosis based on a patient’s X-ray scan. You hope this model can help
+doctors with the challenge of deciphering X-ray scans and open a dialogue between your research team and the
+medical staff to create learning models that are as effective and interpretable as possible.
+"""
 
 import tensorflow as tf
 from tensorflow import keras
@@ -79,28 +80,28 @@ print("\nBuilding model...")
 
 def design_model(training_data):
     # sequential model
-    model = Sequential()
+    model = Sequential(name = 'Covid19_and_Pneumonia_Classifier')
     # add input layer with grayscale image shape
-    model.add(tf.keras.Input(shape = (256, 256, 1)))
+    model.add(tf.keras.Input(shape = (256, 256, 1), name = 'input_layer'))
     # convolutional hidden layers with relu functions
     # maxpooling layers and dropout layers as well
-    model.add(layers.Conv2D(5, 5, strides = 3, activation = "relu")) 
+    model.add(layers.Conv2D(5, 5, strides = 3, activation = "relu", name = 'conv_layer_1')) 
     model.add(layers.MaxPooling2D(
-        pool_size = (2, 2), strides = (2,2)))
-    model.add(layers.Dropout(0.1))
-    model.add(layers.Conv2D(3, 3, strides = 1, activation = "relu")) 
+        pool_size = (2, 2), strides = (2,2), name = 'max_pooling_layer_1'))
+    model.add(layers.Dropout(0.1, name = 'dropout_layer_1'))
+    model.add(layers.Conv2D(3, 3, strides = 1, activation = "relu", name = 'conv_layer_2')) 
     model.add(layers.MaxPooling2D(
-        pool_size = (2, 2), strides = (2, 2)))
-    model.add(layers.Dropout(0.2))
+        pool_size = (2, 2), strides = (2, 2), name = 'max_pooling_layer_2'))
+    model.add(layers.Dropout(0.2, name = 'dropout_layer_2'))
 
     # experimenting with extra layesr
     #model.add(tf.keras.layers.Conv2D(3, 3, strides=1, activation="relu"))
     #model.add(tf.keras.layers.Conv2D(1, 1, strides=1, activation="relu"))
     #model.add(tf.keras.layers.Dropout(0.1))
 
-    model.add(layers.Flatten())
+    model.add(layers.Flatten(name = 'flatten_layer'))
     # output layer with softmax activation function
-    model.add(layers.Dense(3, activation = "softmax"))
+    model.add(layers.Dense(3, activation = "softmax", name = 'output_layer'))
     # compile model with Adam optimizer
     # loss function is categorical crossentropy
     # metrics are categorical accuracy and AUC
@@ -122,13 +123,15 @@ model = design_model(training_iterator)
 es = EarlyStopping(monitor = 'val_auc', mode = 'min', verbose = 1, patience = 20)
 
 print("\nTraining model...")
-# fit the model with 10 ephochs and early stopping
+# fit the model with 30 ephochs and early stopping
 history = model.fit(
         training_iterator,
-        steps_per_epoch = training_iterator.samples/BATCH_SIZE, epochs = 10,
+        steps_per_epoch = training_iterator.samples/ BATCH_SIZE,
+        epochs = 30,
         validation_data = validation_iterator,
-        validation_steps = validation_iterator.samples/BATCH_SIZE,
-        callbacks = [es])
+        validation_steps = validation_iterator.samples/ BATCH_SIZE,
+        callbacks = [es]
+)
 
 
 print(validation_iterator.samples)
@@ -143,8 +146,6 @@ print(training_iterator.samples)
 fig = plt.figure()
 fig.subplots_adjust(wspace = 0.1, hspace = 1)
 ax1 = fig.add_subplot(2, 1, 1)
-#ax1.plot(history.history['categorical_accuracy'])
-#ax1.plot(history.history['val_categorical_accuracy'])
 ax1.plot(history.history['categorical_accuracy'])
 ax1.plot(history.history['val_categorical_accuracy'])
 ax1.set_title('model accuracy')
@@ -175,3 +176,6 @@ print(report)
 
 cm = confusion_matrix(true_classes, predicted_classes)
 print(cm)
+
+
+
