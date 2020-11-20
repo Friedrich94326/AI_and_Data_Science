@@ -1,0 +1,83 @@
+
+CREATE TABLE celebs (
+  id INTEGER,
+  name TEXT,
+  age INTEGER
+);
+
+ SELECT * FROM celebs;  -- * inserts all columns from table celebs
+
+
+
+-- INSERT statement inserts a new row into a table
+
+INSERT INTO celebs (id, name, age)
+VALUES (1, 'Justin Bieber', 22);
+
+/* (id, name, age): parameter that identifies the columns that data will be inserted into */
+
+-- add 3 more celebrities to the table celebs
+
+INSERT INTO celebs (id, name, age)
+VALUES (2, 'Beyonce Knowles', 33);
+
+INSERT INTO celebs (id, name, age) 
+VALUES (3, 'Jeremy Lin', 26); 
+
+INSERT INTO celebs (id, name, age)
+VALUES (4, 'Taylor Swift', 26);
+
+INSERT INTO celebs (id, name, age)
+VALUES (5, 'Eric Chou', 25);
+
+
+ /*
+ Add a new column to a table
+ */
+ ALTER TABLE celebs -- make specificied changes
+ ADD COLUMN twitter_handle TEXT;
+
+SELECT name, twitter_handle FROM celebs;
+--select several specified columns from a table
+
+/* UPDATE changes an existing row in a table */
+
+ UPDATE celebs
+ SET twitter_handle = '@taylorswift13'
+ WHERE id = 4;
+
+ SELECT * FROM celebs;
+ 
+ 
+ DELETE FROM celebs
+ WHERE twitter_handle IS NULL;
+  -- deletes the rows with no 'twitter_handle'
+
+ SELECT * FROM celebs;
+ 
+ 
+  /* Constraints tell the database to reject inserted data that do not adhere to a certain restriction */
+
+ CREATE TABLE constrained_celebs (
+   id INTEGER PRIMARY KEY, --
+   name TEXT UNIQUE,
+   date_of_birth TEXT NOT NULL,
+   date_of_death TEXT DEFAULT 'Not Applicable'
+ );
+
+
+CREATE TABLE awards (  -- create a new table with constraints on the values 
+  id INTEGER PRIMARY KEY,
+  recipient TEXT NOT NULL,
+  award_name TEXT DEFAULT 'Grammy'
+);
+
+/*
+CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+);
+*/
+

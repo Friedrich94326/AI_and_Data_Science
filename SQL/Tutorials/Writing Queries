@@ -1,0 +1,184 @@
+SELECT *
+FROM movies;
+
+SELECT name, genre, year
+FROM movies;
+
+
+SELECT name AS 'Titles'
+FROM movies;
+-- AS renames a column or a table using an alias
+
+
+SELECT imdb_rating AS 'IMDb'
+FROM movies;
+
+
+
+SELECT DISTINCT genre 
+FROM movies;
+
+/*DISTINCT returns unique values, filtering out all duplicate values in the specified columns*/
+
+SELECT DISTINCT year
+FROM movies;
+
+
+SELECT *
+FROM movies
+WHERE imdb_rating < 5;
+
+
+SELECT *
+FROM movies
+WHERE year > 2014;
+
+SELECT *
+FROM movies
+WHERE name LIKE 'Se_en';
+
+/*
+LIKE often used with WHERE to search for a specific pattern in a column
+
+_ means one can substitute any individual character here without breaking the pattern
+
+*/
+
+
+SELECT *
+FROM movies
+WHERE name LIKE '%man%'; -- names that contain 'man'
+
+
+SELECT *
+FROM movies
+WHERE name LIKE 'The %'; -- movie titles that begin with the word 'The '
+
+SELECT *
+FROM movies
+WHERE year LIKE '20%'; -- years that begin with '20'
+
+SELECT *
+FROM movies
+WHERE year LIKE '%15';  -- years that end with '15'
+
+
+SELECT name
+FROM movies
+WHERE imdb_rating IS NULL;  -- IS NULL operator & IS NOT NULL operator
+
+
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1990 AND 2000; -- including 1990 and 2000
+
+SELECT name
+FROM movies
+WHERE name BETWEEN 'A' AND 'D'; 
+/*including movies with names that begin with the letter 'A' up to, but not including ones that begin with 'D'
+However, it includes a name that has simly 'D'
+*/
+
+
+SELECT *
+FROM movies
+WHERE name BETWEEN 'D' AND 'G'; -- names begin with D, E, and F
+
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1970 AND 1979;  -- movies released in the 1970's
+
+
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 2000 AND 2020
+  AND imdb_rating > 8.5
+  AND genre = 'action';  -- AND combines multiple conditions in a WHERE clause
+
+
+/* AND, OR, NOT and their combinations */
+
+SELECT *
+FROM movies
+WHERE year < 1985
+  AND genre = 'horror';
+  
+
+SELECT *
+FROM movies
+WHERE year > 2014
+  OR genre = 'action';
+
+
+
+SELECT * 
+FROM movies
+WHERE genre = 'romance'
+  OR genre = 'comedy';
+  
+  
+
+SELECT * 
+FROM movies
+WHERE year BETWEEN 2000 AND 2009
+  AND ( genre = 'romance' OR genre = 'comedy' )
+  AND imdb_rating > 7 ;
+
+
+/* Sort query results using ORDER BY alphabetically or numerically */
+
+SELECT *
+FROM movies
+WHERE imdb_rating > 8
+ORDER BY year DESC; -- sort things in a descending order (high to low / Z ~ A)
+
+SELECT *
+FROM movies
+WHERE imdb_rating > 8
+ORDER BY year ASC; -- in an ascending order (A ~ Z)
+
+
+SELECT name, year
+FROM movies
+ORDER BY name;
+
+
+SELECT name, year, imdb_rating
+FROM movies
+ORDER BY imdb_rating DESC;
+
+/*
+LIMIT specifies the maximum number of rows we will have
+LIMIT always goes at the very end of the query
+ */
+
+
+SELECT *
+FROM movies
+ORDER BY imdb_rating DESC
+LIMIT 3;
+
+
+
+/* CASE: if-then logic, creates different outputs */
+
+SELECT name,
+  CASE
+    WHEN imdb_rating > 8 THEN 'Fantastic' -- like 'if'
+    WHEN imdb_rating > 6 THEN 'Poorly Received' -- like 'elif'
+    ELSE 'Avoid at ALL Costs'
+  END AS 'Review'
+
+FROM movies;
+
+SELECT name,
+  CASE
+    WHEN genre = 'romance' THEN 'Chill'
+    WHEN genre = 'comedy' THEN 'Chill'
+    ELSE 'Intense'
+  END AS 'Mood'
+FROM movies;
+

@@ -1,0 +1,63 @@
+/* calculate how many rows are in a table */
+
+SELECT COUNT(*)
+FROM fake_apps;
+
+SELECT COUNT(*)  -- passes the name of a column, counts the number of non-empty values in that column
+FROM fake_apps
+WHERE price = 0;
+
+/* add all the values in a specific column */
+SELECT SUM(downloads) FROM fake_apps;
+
+SELECT MAX(downloads) FROM fake_apps;
+SELECT MIN(downloads) FROM fake_apps;
+SELECT name, MAX(price) FROM fake_apps;
+SELECT name, AVG(downloads) FROM fake_apps;
+SELECT AVG(price) FROM fake_apps;
+
+
+SELECT name, ROUND(price, 0) FROM fake_apps;  -- ROUND(column name, integer)
+SELECT ROUND( AVG(price), 2) FROM fake_apps;
+
+
+SELECT year, AVG(imdb_rating)
+FROM movies
+GROUP BY year
+ORDER BY year;
+
+
+SELECT price, COUNT(price)
+FROM fake_apps;
+
+SELECT price
+FROM fake_apps;
+
+SELECT price, COUNT(*) --COUNT() aggregate function
+FROM fake_apps
+GROUP BY price;  -- we arrange price into groups
+
+SELECT price, COUNT(*) --COUNT() aggregate function
+FROM fake_apps
+WHERE downloads > 20000
+GROUP BY price;
+
+SELECT category, SUM(downloads)
+FROM fake_apps
+GROUP BY category;  -- calculates the total number of downloads for each category
+
+SELECT category, price, AVG(downloads)
+FROM fake_apps
+GROUP BY 1, 2;  -- 1 & 2 refer to category & price, respectively
+
+
+SELECT price, ROUND(AVG(downloads)), COUNT(*)
+FROM fake_apps
+GROUP BY price
+HAVING COUNT(*) > 10;  -- restrict the query to price points that have more than 10 apps
+/* WHERE cannot be used aggregate functions; however, HAVING can be.*/
+
+
+
+
+

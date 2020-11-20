@@ -1,0 +1,31 @@
+SELECT * FROM users LIMIT 20;
+
+SELECT email, birthday
+FROM users
+WHERE birthday BETWEEN '1980-01-01' AND '1989-12-31';
+
+SELECT email, created_at
+FROM users
+WHERE created_at < '2017-05-01'; -- cohort of users that signed up prior to May 2017
+
+SELECT email
+FROM users
+WHERE test = 'bears';
+
+
+/* A total of 4 advertising campaigns were run over this period.
+
+There were two sets of ad copy (set 1 and set 2) and both were run on two search engine sites (AAA and BBB). */
+SELECT email
+FROM users
+WHERE campaign LIKE 'BBB%';
+
+SELECT email
+FROM users
+WHERE campaign LIKE '%2';
+-- all users who received ad copy 2 in their campaign
+
+SELECT email
+FROM users
+WHERE campaign IS NOT NULL
+  AND test IS NOT NULL;

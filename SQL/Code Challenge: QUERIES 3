@@ -1,0 +1,22 @@
+/* News Headlines */
+
+/* Order the table by title (from A-Z). */
+ SELECT title, publisher
+ FROM news
+ ORDER BY title ASC;
+ 
+ /* Which article names have the word 'bitcoin' in it? */
+  SELECT *
+ FROM news
+ WHERE title LIKE '%bitcoin%';
+ 
+ /* List the 20 business articles published most recently */
+ 
+ SELECT *
+ FROM news
+ WHERE category = 'b'
+  --AND category LIKE '%t%'
+ORDER BY timestamp DESC
+LIMIT 20;
+
+

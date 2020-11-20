@@ -1,0 +1,19 @@
+/* Querying data on restaurants */
+
+/* Return all the restaurants that are Japanese and $$.*/
+SELECT *
+FROM nomnom
+WHERE cuisine = 'Japanese'
+  AND price = '$$';
+  
+  
+/* Query all restaurant the names of which contain the word ‘noodle’. */
+SELECT *
+FROM nomnom
+WHERE name LIKE '%noodle%';
+
+/* Find the restaurants that have empty health values. */
+SELECT *
+FROM nomnom
+WHERE health IS NULL;
+

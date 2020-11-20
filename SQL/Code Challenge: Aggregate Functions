@@ -1,0 +1,64 @@
+/* Codeflix */
+
+SELECT COUNT(*)
+FROM users
+WHERE email LIKE '%.com';
+
+
+SELECT first_name, COUNT(first_name)
+FROM users
+GROUP BY first_name
+ORDER BY COUNT(first_name) DESC;  -- Create a list of first names and occurrences within the users table.
+
+SELECT ROUND(watch_duration_in_minutes) AS 'duration',
+ COUNT(*) AS 'count'
+FROM watch_history
+GROUP BY duration   -- rounded duration
+ORDER BY duration ASC;
+
+
+
+SELECT user_id AS 'user',
+  SUM(amount) AS 'total'
+FROM payments
+WHERE status = 'paid'
+GROUP BY user_id     -- 'user' is invalid
+ORDER BY SUM(amount) DESC;  -- 'total' is invalid
+
+SELECT user_id AS 'user',
+  SUM(amount) AS 'total'
+FROM payments
+WHERE status = 'paid'
+GROUP BY 1
+ORDER BY 2 DESC;  -- column reference numbers
+
+
+/* Generate a table of user ids and total watch duration for users who watched more than 400 minutes of content. */
+SELECT user_id AS 'user',
+  SUM(watch_duration_in_minutes) AS 'total watch duration'
+FROM watch_history
+GROUP BY user_id
+HAVING SUM(watch_duration_in_minutes) > 400;
+
+
+SELECT ROUND(SUM(watch_duration_in_minutes), 0) AS 'minutes of content streamed on Codeflix'
+FROM watch_history;
+
+
+/* Which days in this period did Codeflix collect the most money? */
+SELECT pay_date, SUM(amount)
+FROM payments
+WHERE status = 'paid'
+GROUP BY pay_date
+ORDER BY 2 DESC;
+
+/* When users successfully pay Codeflix, what is the average payment amount? */
+SELECT AVG(amount)
+FROM payments
+WHERE status = 'paid';
+
+/* Of all the events in the watch_history table, what is the duration of the longest individual watch event? What is the duration of the shortest? */
+
+SELECT MAX(watch_duration_in_minutes) AS 'max duration',
+  MIN(watch_duration_in_minutes) AS 'min duration'
+FROM watch_history;
