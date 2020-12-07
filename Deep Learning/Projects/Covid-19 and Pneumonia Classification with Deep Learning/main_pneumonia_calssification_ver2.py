@@ -120,7 +120,7 @@ def design_model(training_data):
 model = design_model(training_iterator)
 
 # early stopping implementation
-es = EarlyStopping(monitor = 'val_auc', mode = 'min', verbose = 1, patience = 20)
+es = EarlyStopping(monitor = 'val_auc', mode = 'max', verbose = 1, patience = 20)
 
 print("\nTraining model...")
 # fit the model with 30 ephochs and early stopping
