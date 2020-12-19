@@ -38,7 +38,7 @@ features_test = ct.transform(features_test)
 
 #invoke the function for our model design
 model = design_model(features_train)
-print(model.summary())
+model.summary()
 
 #fit the model using 40 epochs and batch size 1
 model.fit(features_train, labels_train, epochs = 40, batch_size = 1, verbose = 1)
