@@ -5,4 +5,4 @@ This very directory contains my learning paths of the following:
 - Machine Learning algorithms (mainly on supervised learning) implemented by Python \
 *packages or libararies: Scikit-Learn, SciPy*
 - Deep learning algortihms implemented by Python \
-*packages or libraries:TensorFlow, Keras, Scikit-Learn, Pandas, Matplotlib, Numpy*
+*packages or libraries:TensorFlow, Keras, Scikit-Learn, Pandas, Matplotlib, NumPy*
