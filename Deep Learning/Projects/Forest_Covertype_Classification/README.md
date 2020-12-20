@@ -18,7 +18,7 @@ Region 2 Resource Information System data. The covertypes are the following:
 - Create clean and modular code.
 
 ## Distribution of Covertypes
-![] (https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/distribution%20of%20cover%20types.png)
+![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/distribution%20of%20cover%20types.png)
 
 ## Dataset:
 Data source: [Forest Cover Type Prediction](https://www.kaggle.com/c/forest-cover-type-prediction)
