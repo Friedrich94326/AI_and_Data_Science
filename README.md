@@ -6,3 +6,12 @@ This very directory contains my learning paths of the following:
 *packages or libararies: Scikit-Learn, SciPy*
 - Deep learning algortihms implemented by Python \
 *packages or libraries:TensorFlow, Keras, Scikit-Learn, Pandas, Matplotlib, NumPy*
+
+
+## AI Algorithms Contained:
+
+***Category*** | ***Learning Types*** | ***Algorithms***
+----| ---- | ----
+Machine Learning | Supervised Learning   |  Multiple Linear Regression <br /> Logistic Regression <br /> SVM <br /> KNN <br /> Decision Tree <br /> Random Forest
+                 | Unsupervised Learning |  
+
