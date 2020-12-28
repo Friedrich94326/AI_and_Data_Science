@@ -12,4 +12,11 @@ K-Means is the most popular and well-known clustering algorithm, and it tries to
 - Step 1: Place k random centroids for the initial clusters. 
 - Step 2: Assign data samples to the nearest centroid. 
 - Step 3: Update centroids based on the above-assigned data samples. 
-- Step 4: Repeat Steps 2 and 3 until convergence (when points don’t move between clusters and centroids stabilise). 
+- Step 4: Repeat Steps 2 and 3 until convergence (when points don’t move between clusters and centroids stabilise).
+
+## Optimal Number of Clusters K:
+Q: How to define what is a good cluster?
+
+Good clustering results in tight clusters, meaning that the samples in each cluster are bunched together. How spread out the clusters are is measured by inertia. Inertia is the distance from each sample to the centroid of its cluster. The lower the inertia is, the better our model has done.
+
+*Elbow method*
