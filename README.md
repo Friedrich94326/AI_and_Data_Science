@@ -24,7 +24,7 @@ This very directory contains my learning paths of the following:
 | Unsupervised Learning |      K-Means Clustering      |
                    
 
-## List of Deep Learning Algorithms:
+## Deep Learning Algorithms:
 - Perceptron Learning Algorithm (PLA)
 - Aritficial Neural Network (ANN)
 - Convolutional Neural Network (CNN)
