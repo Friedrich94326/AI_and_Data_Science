@@ -31,7 +31,7 @@ plt.scatter(x, y, alpha = .5)
 plt.show()
 
 
-""" Step 1: Place k random centroids for the initial clusters"""
+""" Step 1: Place k random centroids for the initial clusters """
 
 # Number of clusters
 k = 3
@@ -74,6 +74,9 @@ def distance(a, b):
     dist += (a[i] - b[i]) ** 2
   return dist ** 0.5
 
+# To store the value of centroids when it updates
+centroids_old = np.zeros(centroids.shape)
+
 # Cluster labels for each point (either 0, 1, or 2)
 labels = np.zeros(len(samples))
 
@@ -101,7 +104,7 @@ centroids_old = deepcopy(centroids)
 
 for i in range(k):
   # Calculate the mean of the points that have the same cluster label
-  points = [sepal_length_width[j] for j in range(len(sepal_length_width)) if labels[j] == i]
+  points = [sepal_length_width[j] for j in range(len(samples)) if labels[j] == i]
 
   # Update K means
   centroids[i] = np.mean(points, axis = 0)
@@ -110,5 +113,40 @@ for i in range(k):
 print(centroids_old)
 print(centroids)
 
+
+""" Step 4: Repeat Steps 2 and 3 until convergence """
+
+while error.all() != 0:
+  # Step 2: Assign samples to nearest centroid
+  for i in range(len(samples)):
+    for j in range(k):
+      distances = distance(sepal_length_width[j], centroids[j])
+    cluster = np.argmin(distances)
+    labels[i] = cluster
+
+  # Step 3: Update centroids
+  centroids_old = deepcopy(centroids)
+  for i in range(k):
+    points = [sepal_length_width[j] for j in range(len(sepal_length_width)) if labels[j] == i]
+    centroids[i] = np.mean(points, axis = 0)
+
+  # Update error
+  for j in range(k):
+    error[j] = distance(centroids[j], centroids_old[j])
+
+
+# Visualise results
+colours = ['r', 'g', 'b']
+
+for i in range(k):
+  points = np.array([sepal_length_width[j] for j in range(len(samples)) if labels[j] == i])
+  plt.scatter(points[:, 0], points[:, 1], c = colours[i], alpha=0.5)
+
+plt.scatter(centroids[:, 0], centroids[:, 1], marker = 'D', s = 150)
+
+plt.xlabel('sepal length (cm)')
+plt.ylabel('sepal width (cm)')
+
+plt.show()
 
 
