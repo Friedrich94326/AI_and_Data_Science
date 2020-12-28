@@ -7,7 +7,7 @@ This very repository contains my *AI & Data Science* learning paths as followa:
 - Machine Learning algorithms (mainly on supervised learning) implemented by Python \
 *packages or libararies: Scikit-Learn, SciPy*
 - Deep learning algortihms implemented by Python \
-*packages or libraries:TensorFlow, Keras, Scikit-Learn, Pandas, Matplotlib, NumPy*
+*packages or libraries: TensorFlow, Keras, Scikit-Learn, Pandas, Matplotlib, NumPy*
 
 
 ## Machine Learning Algorithms:
