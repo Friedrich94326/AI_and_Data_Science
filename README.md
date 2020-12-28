@@ -11,7 +11,7 @@ This very directory contains my learning paths of the following:
 ## AI Algorithms Contained:
 
 ***Category*** | ***Learning Types*** | ***Algorithms***
-|:-----|-------:|-----:|
+|-------|-------|--------|
 | Machine Learning | Supervised Learning   |  Multiple Linear Regression <br /> Logistic Regression <br /> SVM <br /> KNN <br /> Decision Tree <br /> Random Forest
 |                  | Unsupervised Learning |  K-Means Clustering
 
