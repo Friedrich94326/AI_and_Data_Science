@@ -11,6 +11,7 @@ This very directory contains my learning paths of the following:
 ## Machine Learning Algorithms Contained:
 
 | ***Learning Types***  |       ***Algorithms***       |
+|-----------------------|------------------------------|
 |                       |  Multiple Linear Regression  |
 |                       |      Logistic Regression     |
 |                       |  K-Nearest Neighbours (KNN)  |
