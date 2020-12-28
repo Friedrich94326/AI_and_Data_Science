@@ -20,3 +20,9 @@ Q: How to define what is a good cluster?
 Good clustering results in tight clusters, meaning that the samples in each cluster are bunched together. How spread out the clusters are is measured by inertia. Inertia is the distance from each sample to the centroid of its cluster. The lower the inertia is, the better our model has done.
 
 *Elbow method*
+
+
+
+## K-Means v.s. K-Means++
+![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Machine%20Learning/Unsupervised%20Learning/K-means_Clustering/Custom_Initialisation.png)
+![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Machine%20Learning/Unsupervised%20Learning/K-means_Clustering/K-Means%2B%2B_Initialisation.png)
