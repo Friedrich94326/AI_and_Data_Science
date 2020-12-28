@@ -8,17 +8,17 @@ This very directory contains my learning paths of the following:
 *packages or libraries:TensorFlow, Keras, Scikit-Learn, Pandas, Matplotlib, NumPy*
 
 
-## AI Algorithms Contained:
+## Machine Learning Algorithms Contained:
 
-***Category*** | ***Learning Types*** | ***Algorithms***
-|-------|-------|--------|
-| Machine Learning  |    |  Multiple Linear Regression |
-|       |       | Logistic Regression  |
-|       |   Supervised Learning     | K-Nearest Neighbours |
-|       |       | Decision Tree |
-|       |       | Random Forest|
-|-------|-------|--------|
-|       | Unsupervised Learning |  K-Means Clustering |
-|-------|-------|--------|
+| ***Learning Types***  |       ***Algorithms***       |
+|                       |  Multiple Linear Regression  |
+|                       |      Logistic Regression     |
+|                       |  K-Nearest Neighbours (KNN)  |
+|  Supervised Learning  | Support Vector Machine (SVM) |
+|                       |    Naïve Bayes Classifier    |
+|                       |        Decision Tree         |
+|                       |        Random Forest         |
+| Unsupervised Learning |      K-Means Clustering      |
+                   
 
 
