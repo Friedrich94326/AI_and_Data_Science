@@ -1,4 +1,6 @@
 # AI and Data Science Learning Path
+
+## Outline of Repository:
 This very directory contains my learning paths of the following: 
 - Data processing by Python and a bit SQL \
 *packages or libraries: Pandas, NumPy, Matplotlib*
