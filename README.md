@@ -10,7 +10,7 @@ This very directory contains my learning paths of the following:
 *packages or libraries:TensorFlow, Keras, Scikit-Learn, Pandas, Matplotlib, NumPy*
 
 
-## Machine Learning Algorithms Contained:
+## Machine Learning Algorithms:
 
 | ***Learning Types***  |       ***Algorithms***       |
 |-----------------------|------------------------------|
