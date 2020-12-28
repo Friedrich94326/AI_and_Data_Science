@@ -91,3 +91,22 @@ ct = pd.crosstab(df['labels'], df['species'])
 print(ct)
 
 
+""" Choose optimal number of clusters """
+
+num_clusters = list(range(1, 9))
+inertias = []
+
+for k in num_clusters:
+  model = KMeans(n_clusters = k)
+  model.fit(samples)
+  inertias.append(model.inertia_)
+
+fig, ax = plt.subplots(figsize = (8, 6))
+ax.plot(num_clusters, inertias, '-o') 
+ax.set_xlabel('Number of Clusters (k)')
+ax.set_ylabel('Inertia')
+ax.set_title('Optimal Number of Clusters', fontsize = 15, fontweight = 'bold')
+plt.show()
+
+
+
