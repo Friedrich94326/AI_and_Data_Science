@@ -13,5 +13,5 @@ This very directory contains my learning paths of the following:
 ***Category*** | ***Learning Types*** | ***Algorithms***
 ----| ---- | ----
 Machine Learning | Supervised Learning   |  Multiple Linear Regression <br /> Logistic Regression <br /> SVM <br /> KNN <br /> Decision Tree <br /> Random Forest
-Machine Learning | Unsupervised Learning |  K
+Machine Learning | Unsupervised Learning |  K-Means Clustering
 
