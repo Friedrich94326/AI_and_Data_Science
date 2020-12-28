@@ -15,7 +15,7 @@ print(iris.target)
 print(iris.DESCR)
 
 
-""" Visualise Iris data """
+""" Observe Iris dataset """
 
 # Store iris.data
 samples = iris.data
@@ -63,4 +63,52 @@ ax[1].set_title('Centroids')
 # Display plot
 plt.tight_layout()
 plt.show()
+
+
+""" Step 2: Assign samples to nearest centroid  """
+
+# Distance formula
+def distance(a, b):
+  dist = 0
+  for i in range(len(a)):
+    dist += (a[i] - b[i]) ** 2
+  return dist ** 0.5
+
+# Cluster labels for each point (either 0, 1, or 2)
+labels = np.zeros(len(samples))
+
+# Distances to each centroid (k distances)
+distances = np.zeros(k)
+
+
+# Assign to the closest centroid
+for i in range(len(samples)):
+  for j in range(k):
+    distances = distance(sepal_length_width[j], centroids[j])
+
+  cluster = np.argmin(distances)
+  labels[i] = cluster
+
+# Print labels
+print(labels)
+
+
+""" Step 3: Update centroids """
+
+# Store previous centroids 
+centroids_old = deepcopy(centroids)
+
+
+for i in range(k):
+  # Calculate the mean of the points that have the same cluster label
+  points = [sepal_length_width[j] for j in range(len(sepal_length_width)) if labels[j] == i]
+
+  # Update K means
+  centroids[i] = np.mean(points, axis = 0)
+
+
+print(centroids_old)
+print(centroids)
+
+
 
