@@ -28,7 +28,9 @@ This very repository contains my *AI & Data Science* learning paths as followa:
 * Perceptron Learning Algorithm (PLA)
 * Aritficial Neural Network (ANN)
 * Convolutional Neural Network (CNN)
-  * Recurrent Neural Network (RNN) - Ongoing
+  * *Multi-task Cascade Convolution Neural Network (MTCNN)* for Face Detection
+  * *FaceNet Inception Module* for Facial Feature Extraction
+* Recurrent Neural Network (RNN) - Ongoing
   * *Seq2seq Network* for Natural Language Processing: Language Translation, Image Captioning, Conversational Models, Text Summarisation
 * Long Short-term Memory (LSTM) - Ongoing
 
