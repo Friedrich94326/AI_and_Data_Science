@@ -26,7 +26,7 @@ This very repository contains my *AI & Data Science* learning paths as followa:
 
 ## Deep Learning Algorithms:
 * Perceptron Learning Algorithm (PLA)
-* Aritficial Neural Network (ANN)
+* Artificial Neural Network (ANN)
 * Convolutional Neural Network (CNN)
   * *Multi-task Cascade Convolution Neural Network (MTCNN)* for Face Detection
   * *FaceNet Inception Module* for Facial Feature Extraction
