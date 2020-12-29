@@ -25,9 +25,11 @@ This very repository contains my *AI & Data Science* learning paths as followa:
                    
 
 ## Deep Learning Algorithms:
-- Perceptron Learning Algorithm (PLA)
-- Aritficial Neural Network (ANN)
-- Convolutional Neural Network (CNN)
-- Recurrent Neural Network (RNN)
-- Long Short-term Memory (LSTM)
+* Perceptron Learning Algorithm (PLA)
+* Aritficial Neural Network (ANN)
+* Convolutional Neural Network (CNN)
+  * Recurrent Neural Network (RNN) - Ongoing
+  * *Seq2seq Network* for Natural Language Processing: Language Translation, Image Captioning, Conversational Models, Text Summarisation
+* Long Short-term Memory (LSTM) - Ongoing
+
 
