@@ -32,7 +32,7 @@ This very repository contains my *AI & Data Science* learning paths as followa:
   * *FaceNet Inception Module* for Facial Feature Extraction
 * Recurrent Neural Network (RNN): Natural Language Processing (e.g. Language Translation, Image Captioning, Conversational Models, Text Summarisation) - Ongoing
   * *Seq2seq Network*
-* Long Short-Term Memory (LSTM): Text Prediction in Chatbot Systems, Unsegmented & Connected Handwriting Recognition, Speech Recognition, ***Google Translate*** - Ongoing
+* Long Short-Term Memory (LSTM): Word Suggestion in Chatbot Systems, Unsegmented & Connected Handwriting Recognition, Speech Recognition, ***Google Translate*** - Ongoing
   * *Gated Recurrent Unit (GRU)*
 
 
