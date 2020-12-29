@@ -30,8 +30,9 @@ This very repository contains my *AI & Data Science* learning paths as followa:
 * Convolutional Neural Network (CNN)
   * *Multi-task Cascade Convolution Neural Network (MTCNN)* for Face Detection
   * *FaceNet Inception Module* for Facial Feature Extraction
-* Recurrent Neural Network (RNN) - Ongoing
-  * *Seq2seq Network* for Natural Language Processing: Language Translation, Image Captioning, Conversational Models, Text Summarisation
-* Long Short-term Memory (LSTM) - Ongoing
+* Recurrent Neural Network (RNN): Natural Language Processing (e.g. Language Translation, Image Captioning, Conversational Models, Text Summarisation) - Ongoing
+  * *Seq2seq Network*
+* Long Short-Term Memory (LSTM): Text Prediction in Chatbot Systems, Unsegmented & Connected Handwriting Recognition, Speech Recognition, ***Google Translate*** - Ongoing
+  * *Gated Recurrent Unit (GRU)*
 
 
