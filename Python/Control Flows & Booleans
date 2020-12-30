@@ -1,0 +1,42 @@
+statement_one = False  # with data type Boolean
+
+statement_two = True
+
+def graduation_reqs(gpa, credits):
+  msg = ""
+  if (gpa >= 2.0) and (credits >= 120):
+    msg += "You meet the requirements to graduate!"
+  elif (gpa >= 2.0) and not(credits >= 120):
+    msg += "You do not have enough credits to graduate."
+  elif not(gpa >= 2.0) and (credits >= 120):
+    msg += "Your GPA is not high enough to graduate."
+  else:
+    msg += "You do not meet either requirement to graduate!"
+  
+  return msg
+
+
+
+""" try and except statements to check for possible errors that a user might encounter """
+def raises_value_error():
+  raise ValueError
+  
+try:
+  raises_value_error()
+except ValueError:
+  print("You raised a ValueError!")
+
+
+def divide_two_numbers(x, y):
+  result = x / y
+  return result
+
+try:
+  result = divide_two_numbers(2,0)
+  print(result)
+except NameError:
+  print("A NameError occurred.")
+except ValueError:
+  print("A ValueError occurred.") 
+except ZeroDivisionError:
+  print("A ZeroDivisionError occurred.")

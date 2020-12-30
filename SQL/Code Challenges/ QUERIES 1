@@ -1,0 +1,43 @@
+/* Querying data from 'babies' table provided by SSA- 'Popular Baby Names' */
+
+
+/* Find the number of girls who were named Lillian for the full span of time of the database. */
+SELECT year, number    
+FROM babies
+WHERE name = 'Lillian';
+
+
+/* Find 20 distinct names that start with ‘S’. */
+SELECT DISTINCT name
+FROM babies
+WHERE name LIKE 'S%'
+LIMIT 20;
+
+
+
+SELECT name, year, number
+FROM babies
+WHERE gender = 'F'
+  AND name = 'Christine'
+  AND year >= 1880
+ORDER BY year DESC;
+
+
+SELECT name, year, number
+FROM babies
+WHERE gender = 'F'
+  --AND name = 'Christine'
+  AND year >= 1880
+ORDER BY number DESC;
+
+/* What are the top 10 names in 1880? */
+SELECT name, gender, number
+FROM babies
+WHERE year = 1880
+ORDER BY number DESC
+LIMIT 10;
+
+
+
+
+

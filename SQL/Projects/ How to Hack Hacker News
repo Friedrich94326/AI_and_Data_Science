@@ -1,0 +1,82 @@
+/* top 5 stories with the highest scores*/
+SELECT title, score
+FROM hacker_news
+ORDER BY score DESC
+LIMIT 5;
+
+SELECT SUM(score) AS 'total score'
+FROM hacker_news;
+
+SELECT user, SUM(score) AS 'combined score'
+FROM hacker_news
+GROUP BY user
+HAVING SUM(score) > 200
+ORDER BY 2 DESC;
+
+--DECLARE @total_score SUM(score);
+/* declare a variable and store SUM(score) in it */
+
+/*
+SELECT total_score AS 'percentage of users whose combined scores exceed 200'
+FROM hacker_news;
+*/
+SELECT ((517.0 + 309.0 + 304.0 + 282.0) / SUM(score)) AS 'percentage of users whose combined scores exceed 200'
+FROM hacker_news;
+
+
+SELECT user AS 'offending user', COUNT(*) AS 'number of posted'
+FROM hacker_news
+WHERE url LIKE '%watch?v=dQw4w9WgXcQ%'
+GROUP BY user
+ORDER BY COUNT(*) DESC;
+
+
+/* Which of these sites feed Hacker News the most: GitHub, Medium, or New York Times? */
+--categorise each story based on their source
+-- Which sites feed Hacker News?
+SELECT CASE
+  WHEN url LIKE '%github.com%' THEN 'GitHub'
+  WHEN url LIKE '%medium.com%' THEN 'Medium'
+  WHEN url LIKE '%nytimes.com%' THEN 'New York Times'
+  ELSE 'other'
+  END AS 'Source',
+  COUNT(*) AS 'number of stories'
+FROM hacker_news
+WHERE Source <> 'other'
+GROUP BY 1;
+
+
+/* What's the best time to post a story? */
+
+SELECT timestamp
+FROM hacker_news
+LIMIT 10;
+
+
+SELECT timestamp, strftime('%H', timestamp) AS 'hour'
+FROM hacker_news
+WHERE strftime('%H', timestamp) IS NOT NULL
+GROUP BY 1
+LIMIT 20;
+
+/*
+strftime(__, timestamp) works out this way:
+For strftime(__, timestamp):
+%Y returns the year (YYYY)
+%m returns the month (01-12)
+%d returns the day of the month (1-31)
+%H returns 24-hour clock (00-23)
+%M returns the minute (00-59)
+%S returns the seconds (00-59)
+if timestamp format is YYYY-MM-DD HH:MM:SS.
+*/
+
+
+SELECT strftime('%H', timestamp) AS 'best hour',
+       ROUND(AVG(score), 3) AS 'averaged score',
+       COUNT(title) AS 'count of stories'
+FROM hacker_news
+WHERE strftime('%H', timestamp) IS NOT NULL
+GROUP BY 1
+ORDER BY 1 DESC
+LIMIT 5;

@@ -1,0 +1,98 @@
+ SELECT * FROM met LIMIT 10;
+ SELECT COUNT(*) AS 'pieces of art in American Decorative Art collection'
+ FROM met
+ WHERE department LIKE '%Decorative%';
+
+ SELECT COUNT(*) AS 'number of celery'
+ FROM met
+ WHERE category LIKE '%celery%';
+
+/*
+SELECT title, medium, date
+FROM met
+GROUP BY 3
+ORDER BY 3 ASC
+LIMIT 1;
+*/
+
+SELECT date, title, medium
+FROM met
+WHERE date LIKE '%1600%'; -- 1600-1700 is found by using MIN(date)
+
+
+
+SELECT country,
+  COUNT(*) AS 'count of pieces from that country'
+FROM met
+--HAVING (CASE WHEN country IS NULL THEN 'other' END) <> 'other'
+WHERE country IS NOT NULL
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 10;
+
+
+
+SELECT
+  (CASE
+    WHEN country IS NULL THEN 'other'
+    ELSE country
+  END) AS 'country',
+  COUNT(*) AS 'count of pieces from that country'
+FROM met
+WHERE country <> 'other'
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 10;
+
+
+SELECT category, COUNT(*)
+FROM met
+GROUP BY category
+HAVING COUNT(*) > 100
+ORDER BY 2 DESC;
+
+
+/* Count the number of pieces where the medium contains ‘gold’ or ‘silver’. */
+
+SELECT medium, COUNT(*) AS 'count'
+FROM met
+WHERE medium LIKE '%gold%'
+  OR medium LIKE '%silver%' -- '% %' ingores capital letter or lowercases
+GROUP BY 1
+ORDER BY 2 DESC;
+
+
+/* gold is put ahead of silver */
+SELECT
+  CASE
+     WHEN LOWER(medium) LIKE '%gold%' THEN 'Gold'
+     WHEN LOWER(medium) LIKE '%silver%' THEN 'Silver'
+     ELSE NULL
+  END AS 'bling',
+  COUNT(*) AS 'count'
+FROM met
+WHERE bling IS NOT NULL
+GROUP BY 1
+ORDER BY 2 DESC;
+
+/* gold is put in back of silver */
+SELECT
+  CASE
+     WHEN LOWER(medium) LIKE '%silver%' THEN 'Silver'
+     WHEN LOWER(medium) LIKE '%gold%' THEN 'Gold'
+     ELSE NULL
+  END AS 'bling',
+  COUNT(*) AS 'count'
+FROM met
+WHERE bling IS NOT NULL
+GROUP BY 1
+ORDER BY 2 DESC;
+
+
+
+
+
+
+
+
+

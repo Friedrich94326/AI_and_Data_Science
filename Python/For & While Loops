@@ -1,0 +1,39 @@
+all_students = ["Alex", "Briana", "Cheri", "Daniele", "Dora", "Minerva", "Alexa", "Obie", "Arius", "Loki"]
+students_in_poetry = []
+while len(students_in_poetry) < 6:
+  popped_student = all_students.pop(-1)
+  students_in_poetry.append(popped_student)
+
+print(students_in_poetry)
+
+
+
+sales_data = [[12, 17, 22], [2, 10, 3], [5, 12, 13]]
+scoops_sold = 0
+for location in sales_data:
+  print(location)
+  for scoop in location:
+    scoops_sold += scoop
+print(scoops_sold)
+
+
+# List comprehensions
+
+heights = [161, 164, 156, 144, 158, 170, 163, 163, 157]
+can_ride_coaster = [height for height in heights if height > 161]
+print(can_ride_coaster)
+
+celsius = [0, 10, 15, 32, -5, 27, 3]
+fahrenheit = [cel* 9/5 + 32 for cel in celsius]
+print(fahrenheit)
+
+single_digits = range(10)
+squares = []
+
+for digit in single_digits:
+  print(digit)
+  squares.append(digit**2)
+print(squares)
+
+cubes = [ digit**3 for digit in single_digits ]
+print(cubes)

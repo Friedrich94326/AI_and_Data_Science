@@ -1,0 +1,59 @@
+/* We are given 3 tables */
+
+SELECT * FROM orders LIMIT 5;
+SELECT * FROM subscriptions LIMIT 5;
+SELECT * FROM customers LIMIT 5;
+
+/* Combining Tables with SQL */
+
+SELECT *
+FROM orders  -- 'orders' is specified as the table we wanna look in 
+JOIN customers 
+ON orders.customer_id = customers.customer_id
+LIMIT 5;
+/*
+match column 'customer_id' in table 'orders'
+with column 'customer_id' in table 'customers'
+*/
+
+SELECT *
+FROM orders
+JOIN subscriptions
+ON orders.subscription_id = subscriptions.subscription_id
+-- ON subscriptions.subscription_id = orders.subscription_id
+/* equivalent expressions */
+LIMIT 20;
+
+
+SELECT *
+FROM orders
+JOIN subscriptions
+ON orders.subscription_id = subscriptions.subscription_id
+WHERE description = 'Fashion Magazine'
+LIMIT 20;
+
+
+/* Inner JOINs */
+SELECT COUNT(*) FROM newspaper; -- number of subscribers who get a print newspaper
+SELECT COUNT(*) FROM online; -- number of subscribers who get an online edition
+
+SELECT COUNT(*)
+FROM newspaper
+JOIN online
+ON newspaper.id = online.id;
+/* The final result has all values from the first and last rows but does not include the non-matching middle row. */
+
+
+/* Left JOINs */
+SELECT *
+FROM newspaper
+LEFT JOIN online
+ON newspaper.id = online.id;
+/* A left join will keep all rows from the first table, regardless of whether there is a matching row in the second table. */
+
+SELECT *
+FROM newspaper
+LEFT JOIN online
+  ON newspaper.id = online.id
+WHERE online.id IS NULL; -- find which users do not subscribe to the online edition
+
