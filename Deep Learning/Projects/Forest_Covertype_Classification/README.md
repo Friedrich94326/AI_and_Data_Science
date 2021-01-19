@@ -17,8 +17,23 @@ Region 2 Resource Information System data. The covertypes are the following:
 - Test and analyse performance.
 - Create clean and modular code.
 
-## Distribution of Covertypes
+## Distribution of Covertypes:
 ![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/distribution%20of%20cover%20types.png)
+
+## Architecture of Network:
+![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Trained_Models/covertype_3_layered_classifier/Model_Architecture.png)
+
+## Overview of Training History: Accuracy and Loss over Epochs:
+![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Outputs/acc_loss_plot.png)
+
+## Evaluating the Accuracy of Classification:
+
+### Confusion Matrix
+![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Outputs/confusion_matrix.png)
+
+### Model Scores
+![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Trained_Models/covertype_3_layered_classifier/Model_Score.jpg)
+
 
 ## Dataset:
 Data source: [Forest Cover Type Prediction](https://www.kaggle.com/c/forest-cover-type-prediction)
