@@ -26,9 +26,9 @@ Region 2 Resource Information System data. The covertypes are the following:
 ## Overview of Training History: Accuracy and Loss over Epochs:
 ![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Outputs/acc_loss_plot.png)
 
-## Evaluating the Accuracy of Classification:
+## Performance of Our Classification Model:
 
-### Confusion Matrix
+### Confusion Matrix (Visualised through a Heatmap)
 ![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Outputs/confusion_matrix.png)
 
 ### Model Scores
