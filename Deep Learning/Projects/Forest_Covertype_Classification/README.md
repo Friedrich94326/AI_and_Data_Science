@@ -21,7 +21,7 @@ Region 2 Resource Information System data. The covertypes are the following:
 ![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/distribution%20of%20cover%20types.png)
 
 ## Architecture of Network:
-![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Trained_Models/covertype_3_layered_classifier/Model_Architecture.png)
+![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Trained_Models/covertype_3_layered_classifier/model_plot.png)
 
 ## Overview of Training History: Accuracy and Loss over Epochs:
 ![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Outputs/acc_loss_plot.png)
