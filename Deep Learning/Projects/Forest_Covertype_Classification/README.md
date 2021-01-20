@@ -29,7 +29,7 @@ Region 2 Resource Information System data. The covertypes are the following:
 ## Evaluating the Accuracy of Classification:
 
 ### Confusion Matrix
-![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Outputs/confusion_matrix.png)
+![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Outputs/confusion_matrix.png =20x)
 
 ### Model Scores
 ![](https://github.com/Friedrich94326/AI_and_Data_Science/blob/Python/Deep%20Learning/Projects/Forest_Covertype_Classification/Trained_Models/covertype_3_layered_classifier/Model_Score.jpg)
